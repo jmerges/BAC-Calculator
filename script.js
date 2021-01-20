@@ -1,14 +1,18 @@
 var startTime = localStorage.getItem("startTime");
 var drinking = localStorage.getItem("drinking");
 var total = parseInt(localStorage.getItem("total"));
+var BAC=0;
 
 var currentTime = moment().format("DD/MM HH:mm:ss");
-let startSeconds = parseInt(startTime.charAt(6)+startTime.charAt(7))*3600+parseInt(startTime.charAt(9)+startTime.charAt(10))*60+parseInt(startTime.charAt(12)+startTime.charAt(13));
-console.log(startSeconds);
-let currentSeconds = parseInt(currentTime.charAt(6)+currentTime.charAt(7))*3600+parseInt(currentTime.charAt(9)+currentTime.charAt(10))*60+parseInt(currentTime.charAt(12)+currentTime.charAt(13));
-console.log(currentSeconds);
-var timeElapsed = currentSeconds - startSeconds;
-BAC=(total*0.02)-0.02*(timeElapsed/3600);
+if (localStorage.getItem("startTime")) {
+    let startSeconds = parseInt(startTime.charAt(6)+startTime.charAt(7))*3600+parseInt(startTime.charAt(9)+startTime.charAt(10))*60+parseInt(startTime.charAt(12)+startTime.charAt(13));
+    console.log(startSeconds);
+    let currentSeconds = parseInt(currentTime.charAt(6)+currentTime.charAt(7))*3600+parseInt(currentTime.charAt(9)+currentTime.charAt(10))*60+parseInt(currentTime.charAt(12)+currentTime.charAt(13));
+    console.log(currentSeconds);
+    var timeElapsed = currentSeconds - startSeconds;
+    BAC=(total*0.02)-0.02*(timeElapsed/3600);
+}
+
 
 $("#currentTime").text(currentTime);
 $("#total").text("Total shots: "+total);
