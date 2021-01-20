@@ -1,9 +1,9 @@
-var startTime = moment().format("DD/MM HH:mm:ss");
+var startTime = moment().format("MM/DD HH:mm:ss");
 var drinking = false;
 var total=0;
 var BAC=0;
 
-var currentTime = moment().format("DD/MM HH:mm:ss");
+var currentTime = moment().format("MM/DD HH:mm:ss");
 if (localStorage.getItem("startTime")) {
     var total = parseInt(localStorage.getItem("total"));
     var startTime = localStorage.getItem("startTime");
@@ -26,7 +26,7 @@ function shot (event) {
     if (event.keyCode==32) {
         total+=1;
         BAC+=0.02;
-        var currentTime = moment().format("DD/MM HH:mm:ss");
+        var currentTime = moment().format("MM/DD HH:mm:ss");
         $("#currentTime").text(currentTime);
         if (!drinking) {
             startTime = currentTime;
