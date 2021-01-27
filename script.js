@@ -14,6 +14,9 @@ if (localStorage.getItem("startTime")) {
     console.log(currentSeconds);
     var timeElapsed = currentSeconds - startSeconds;
     BAC=(total*0.02)-0.02*(timeElapsed/3600);
+    if (BAC < 0) {
+        BAC = 0;
+    }
 }
 
 
